@@ -44,7 +44,7 @@ class CustomStyleProvider: StandardKeyboardStyleProvider {
         var style = super.inputCalloutStyle
         style.callout.backgroundColor = .blue
         style.callout.textColor = .yellow
-        style.callout.hidden = true
+        style.callout.hidden = sharedDefault.bool(forKey: Constant.POPUP_PRESS_KEY)
         return style
     }
 }

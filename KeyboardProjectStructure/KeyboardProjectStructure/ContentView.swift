@@ -50,6 +50,14 @@ struct ContentView: View {
             }, label: {
                 Text("Toggle show special key")
             })
+            
+            Button(action: {
+                var value = sharedDefault.bool(forKey: Constant.POPUP_PRESS_KEY)
+                value.toggle()
+                sharedDefault.set(value , forKey: Constant.POPUP_PRESS_KEY)
+            }, label: {
+                Text("Toggle Popup Press key")
+            })
         }
         .padding()
     }
