@@ -15,7 +15,9 @@ extension View {
 }
 
 struct RainbowAnimation: ViewModifier {
-    // 1
+    
+    let sharedDefault = UserDefaults(suiteName: "group.com.maxmobile.NeonLedKeyboard")!
+    
     @State var isOn: Bool = false
     
     let hueColors = stride(from: 0, to: 2, by: 0.1).map {
@@ -33,12 +35,14 @@ struct RainbowAnimation: ViewModifier {
         let gradient = LinearGradient(gradient: Gradient(colors: hueColors+hueColors), startPoint: .topLeading, endPoint: .bottomTrailing)
         return content
             .overlay(GeometryReader { proxy in
-            ZStack {
-                gradient
-                    .frame(width: proxy.size.width * 2)
-                    .offset(x: self.isOn ? 0 : -proxy.size.width)
-            }
-            .allowsHitTesting(false)
+                if sharedDefault.bool(forKey: Constant.NEON_LED_ANIMATION) {
+                    ZStack {
+                        gradient
+                            .frame(width: proxy.size.width * 2)
+                            .offset(x: self.isOn ? 0 : -proxy.size.width)
+                    }
+                    .allowsHitTesting(false)
+                }
         })
         .onAppear {
             withAnimation(self.animation) {

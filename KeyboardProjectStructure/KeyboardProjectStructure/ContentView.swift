@@ -19,6 +19,15 @@ struct ContentView: View {
             TextField("text", text: $text)
             
             Button(action: {
+                var value = sharedDefault.bool(forKey: Constant.NEON_LED_ANIMATION)
+                value.toggle()
+                sharedDefault.set(value , forKey: Constant.NEON_LED_ANIMATION)
+                UIApplication.shared.endEditing()
+            }, label: {
+                Text("Neon led animation")
+            })
+            
+            Button(action: {
                 sharedDefault.set(ThemeStyle.theme1.rawValue, forKey: Constant.THEME_KEYBOARD)
                 UIApplication.shared.endEditing()
             }, label: {
@@ -26,7 +35,7 @@ struct ContentView: View {
             })
             
             Button(action: {
-                sharedDefault.set(ThemeStyle.theme1.rawValue, forKey: Constant.THEME_KEYBOARD)
+                sharedDefault.set(ThemeStyle.theme2.rawValue, forKey: Constant.THEME_KEYBOARD)
                 UIApplication.shared.endEditing()
             }, label: {
                 Text("Theme2")
@@ -38,7 +47,7 @@ struct ContentView: View {
                 } else {
                     sharedDefault.set(Keyboard.AutocapitalizationType.sentences.rawValue, forKey: Constant.AUTO_CAPITALIZATION)
                 }
-                
+                UIApplication.shared.endEditing()
             }, label: {
                 Text("change autocaptizaltion")
             })
@@ -47,6 +56,7 @@ struct ContentView: View {
                 var value = sharedDefault.bool(forKey: Constant.SHOW_SPECIAL_KEY)
                 value.toggle()
                 sharedDefault.set(value , forKey: Constant.SHOW_SPECIAL_KEY)
+                UIApplication.shared.endEditing()
             }, label: {
                 Text("Toggle show special key")
             })
@@ -55,6 +65,7 @@ struct ContentView: View {
                 var value = sharedDefault.bool(forKey: Constant.POPUP_PRESS_KEY)
                 value.toggle()
                 sharedDefault.set(value , forKey: Constant.POPUP_PRESS_KEY)
+                UIApplication.shared.endEditing()
             }, label: {
                 Text("Toggle Popup Press key")
             })
@@ -63,6 +74,7 @@ struct ContentView: View {
                 var value = sharedDefault.bool(forKey: Constant.SHOW_SUGGESTIONS)
                 value.toggle()
                 sharedDefault.set(value , forKey: Constant.SHOW_SUGGESTIONS)
+                UIApplication.shared.endEditing()
             }, label: {
                 Text("Toggle show suggestion")
             })
@@ -71,6 +83,7 @@ struct ContentView: View {
                 var value = sharedDefault.bool(forKey: Constant.AUTO_COMPLETE)
                 value.toggle()
                 sharedDefault.set(value , forKey: Constant.AUTO_COMPLETE)
+                UIApplication.shared.endEditing()
             }, label: {
                 Text("Toggle auto complete")
             })

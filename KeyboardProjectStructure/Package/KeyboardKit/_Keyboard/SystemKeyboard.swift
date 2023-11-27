@@ -333,7 +333,7 @@ private extension SystemKeyboard {
             }
             
             systemKeyboard(for: size)
-//                .rainbowAnimation()
+            .rainbowAnimation()
         }
     }
 

@@ -30,7 +30,12 @@ class CustomAutoCompleteProvider: AutocompleteProvider {
         for text: String
     ) async throws -> [Autocomplete.Suggestion] {
         guard text.count > 0 else { return [] }
-        return getSuggestion(text)
+        let suggestions = getSuggestion(text)
+        if suggestions.count == 0 {
+            return [Autocomplete.Suggestion(text: text)]
+        } else {
+            return getSuggestion(text)
+        }
     }
     
     private func getSuggestion(_ text: String) -> [Autocomplete.Suggestion] {
