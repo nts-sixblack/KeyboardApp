@@ -42,6 +42,14 @@ struct ContentView: View {
             }, label: {
                 Text("change autocaptizaltion")
             })
+            
+            Button(action: {
+                var value = sharedDefault.bool(forKey: Constant.SHOW_SPECIAL_KEY)
+                value.toggle()
+                sharedDefault.set(value , forKey: Constant.SHOW_SPECIAL_KEY)
+            }, label: {
+                Text("Toggle show special key")
+            })
         }
         .padding()
     }

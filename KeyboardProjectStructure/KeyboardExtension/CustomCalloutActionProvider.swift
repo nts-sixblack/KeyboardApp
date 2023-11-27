@@ -9,7 +9,23 @@ import Foundation
 
 class CustomCalloutActionProvider: StandardCalloutActionProvider {
     
-    open func calloutActionString(for char: String) -> String {
+    override func calloutActions(for action: KeyboardAction) -> [KeyboardAction] {
+        switch action {
+        case .character(let char):
+            return calloutKeyboardActions(for: char)
+        default: break
+        }
+        return super.calloutActions(for: action)
+    }
+    
+    private func calloutKeyboardActions(for char: String) -> [KeyboardAction] {
+        let charValue = char.lowercased()
+        let result = calloutActionString(for: charValue)
+        let string = char.isUppercasedWithLowercaseVariant ? result.uppercased() : result
+        return string.map { .character(String($0)) }
+    }
+    
+    private func calloutActionString(for char: String) -> String {
         switch char {
             
         case "q": return "1"
@@ -23,7 +39,7 @@ class CustomCalloutActionProvider: StandardCalloutActionProvider {
         case "o": return "9oôöòóœøōõ"
         case "p": return "0"
             
-        case "a": return "aàáâäæãåā"
+        case "a": return "@aàáâäæãåā"
         case "s": return "#sßśš"
         case "d": return "$"
         case "f": return "%"

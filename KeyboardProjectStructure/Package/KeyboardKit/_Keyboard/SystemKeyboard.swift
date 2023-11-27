@@ -364,6 +364,7 @@ private extension SystemKeyboard {
                 keyboardWidth: keyboardSize.width,
                 inputWidth: layout.inputWidth(for: keyboardSize.width),
                 content: buttonContent(for: item)
+                
             )
         ))
     }
@@ -471,8 +472,7 @@ struct SystemKeyboard_Previews: PreviewProvider {
                         toolbar: { $0.view }
                     )
                 }
-//                .background(Color.standardKeyboardBackground)
-                .background(Color.red)
+                .background(Color.standardKeyboardBackground)
             }
         }
     }

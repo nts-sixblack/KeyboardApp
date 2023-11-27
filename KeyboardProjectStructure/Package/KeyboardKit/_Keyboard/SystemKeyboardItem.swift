@@ -13,6 +13,8 @@ import SwiftUI
  */
 public struct SystemKeyboardItem<Content: View>: View {
     
+    let sharedDefault = UserDefaults(suiteName: Constant.GROUP_APP)!
+    
     /**
      Create a system keyboard button row item.
      
@@ -60,6 +62,8 @@ public struct SystemKeyboardItem<Content: View>: View {
     @State
     private var isPressed = false
     
+    @State private var specialCharacter: String = ""
+    
     public var body: some View {
         content
             .opacity(contentOpacity)
@@ -77,6 +81,26 @@ public struct SystemKeyboardItem<Content: View>: View {
                 edgeInsets: item.edgeInsets,
                 isPressed: $isPressed
             )
+            .overlay(alignment: .topTrailing) {
+                Text("\(specialCharacter)")
+                    .font(.system(size: 12))
+                    .foregroundColor(.black)
+                    .offset(x: -5, y: 5)
+                    .onAppear {
+                        if sharedDefault.bool(forKey: Constant.SHOW_SPECIAL_KEY) {
+                            switch item.action {
+                            case .character(_):
+                                let firstAction = calloutContext?.actionContext.actionProvider?.calloutActions(for: item.action).first
+                                switch firstAction {
+                                case .character(let characacter):
+                                    specialCharacter = characacter
+                                default: break
+                                }
+                            default: break
+                            }
+                        }
+                    }
+            }
     }
     
     private var contentOpacity: Double {
