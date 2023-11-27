@@ -24,6 +24,15 @@ public extension Keyboard {
 
         // Auto-capitalization should not be applied.
         case none
+        
+        public static func getType(_ rawValue: String) -> AutocapitalizationType {
+            for style in AutocapitalizationType.allCases {
+                if rawValue.localizedLowercase == style.rawValue.localizedLowercase {
+                    return style
+                }
+            }
+            return .sentences
+        }
     }
 }
 

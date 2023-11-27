@@ -22,7 +22,9 @@ class KeyboardViewController: KeyboardInputViewController {
     
     override func viewDidLoad() {
         
-        state.keyboardContext.autocapitalizationTypeOverride = .words
+        /// auto capitalization
+        let auto = Keyboard.AutocapitalizationType.getType(sharedDefault.string(forKey: Constant.AUTO_CAPITALIZATION) ?? "")
+        state.keyboardContext.autocapitalizationTypeOverride = auto
         
         /// style provider
         /// style of keyboard button and callout action
