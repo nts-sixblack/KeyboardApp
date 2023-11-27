@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8322590B2B1495E5008FB987 /* RainbowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322590A2B1495E5008FB987 /* RainbowModifier.swift */; };
+		8322590C2B1495F7008FB987 /* RainbowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322590A2B1495E5008FB987 /* RainbowModifier.swift */; };
+		832259512B14A2E3008FB987 /* AnimatedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832259502B14A2E3008FB987 /* AnimatedGradient.swift */; };
+		832259542B14A328008FB987 /* AnimatedGradientView in Frameworks */ = {isa = PBXBuildFile; productRef = 832259532B14A328008FB987 /* AnimatedGradientView */; };
+		832259562B14A331008FB987 /* AnimatedGradientView in Frameworks */ = {isa = PBXBuildFile; productRef = 832259552B14A331008FB987 /* AnimatedGradientView */; };
+		832259572B14A35F008FB987 /* AnimatedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832259502B14A2E3008FB987 /* AnimatedGradient.swift */; };
 		83B94C702B142EE300D92BBB /* CustomCalloutActionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */; };
 		83B94C732B1459DD00D92BBB /* CustomAutoCompleteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */; };
 		83BAB9172B0F3020006793FA /* KeyboardProjectStructureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB9162B0F3020006793FA /* KeyboardProjectStructureApp.swift */; };
 		83BAB9192B0F3020006793FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB9182B0F3020006793FA /* ContentView.swift */; };
 		83BAB91B2B0F3021006793FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BAB91A2B0F3021006793FA /* Assets.xcassets */; };
 		83BAB91E2B0F3021006793FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BAB91D2B0F3021006793FA /* Preview Assets.xcassets */; };
-		83BABB132B0F3140006793FA /* RainbowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABB122B0F3140006793FA /* RainbowModifier.swift */; };
 		83BABB1B2B0F3284006793FA /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABB1A2B0F3284006793FA /* KeyboardViewController.swift */; };
 		83BABB1F2B0F3284006793FA /* KeyboardExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 83BABB182B0F3284006793FA /* KeyboardExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		83BABE032B0F35AD006793FA /* NavigationLinkArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABCF62B0F35AC006793FA /* NavigationLinkArrow.swift */; };
@@ -400,7 +405,6 @@
 		83BABF802B0F35AD006793FA /* StandardCalloutActionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABE012B0F35AD006793FA /* StandardCalloutActionProvider.swift */; };
 		83BABF812B0F35AD006793FA /* Callouts+ButtonArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABE022B0F35AD006793FA /* Callouts+ButtonArea.swift */; };
 		83BABF822B0F35AD006793FA /* Callouts+ButtonArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABE022B0F35AD006793FA /* Callouts+ButtonArea.swift */; };
-		83BABF832B0F35F7006793FA /* RainbowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABB122B0F3140006793FA /* RainbowModifier.swift */; };
 		83BABF8A2B0F3D17006793FA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABF892B0F3D17006793FA /* Theme.swift */; };
 		83BABF8B2B0F3D17006793FA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BABF892B0F3D17006793FA /* Theme.swift */; };
 		83D40CDA2B0F4C9400F610E4 /* KeyboardCalloutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D40CD92B0F4C9400F610E4 /* KeyboardCalloutModel.swift */; };
@@ -442,6 +446,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8322590A2B1495E5008FB987 /* RainbowModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowModifier.swift; sourceTree = "<group>"; };
+		832259502B14A2E3008FB987 /* AnimatedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradient.swift; sourceTree = "<group>"; };
 		83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutActionProvider.swift; sourceTree = "<group>"; };
 		83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAutoCompleteProvider.swift; sourceTree = "<group>"; };
 		83BAB9132B0F301F006793FA /* KeyboardProjectStructure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardProjectStructure.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -449,7 +455,6 @@
 		83BAB9182B0F3020006793FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		83BAB91A2B0F3021006793FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83BAB91D2B0F3021006793FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		83BABB122B0F3140006793FA /* RainbowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowModifier.swift; sourceTree = "<group>"; };
 		83BABB182B0F3284006793FA /* KeyboardExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KeyboardExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BABB1A2B0F3284006793FA /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		83BABB1C2B0F3284006793FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -713,6 +718,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832259542B14A328008FB987 /* AnimatedGradientView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,12 +726,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832259562B14A331008FB987 /* AnimatedGradientView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8322594E2B14A2B8008FB987 /* Representable */ = {
+			isa = PBXGroup;
+			children = (
+				832259502B14A2E3008FB987 /* AnimatedGradient.swift */,
+			);
+			path = Representable;
+			sourceTree = "<group>";
+		};
+		832259522B14A328008FB987 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		83B94C712B14335500D92BBB /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -740,6 +762,7 @@
 				83BAB9152B0F3020006793FA /* KeyboardProjectStructure */,
 				83BABB192B0F3284006793FA /* KeyboardExtension */,
 				83BAB9142B0F301F006793FA /* Products */,
+				832259522B14A328008FB987 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -761,8 +784,9 @@
 				83BABB112B0F3135006793FA /* Modifier */,
 				83B94C712B14335500D92BBB /* Config */,
 				83D40CE32B107FE200F610E4 /* Extension */,
-				83BAB9162B0F3020006793FA /* KeyboardProjectStructureApp.swift */,
+				8322594E2B14A2B8008FB987 /* Representable */,
 				83BAB9182B0F3020006793FA /* ContentView.swift */,
+				83BAB9162B0F3020006793FA /* KeyboardProjectStructureApp.swift */,
 				83BAB91A2B0F3021006793FA /* Assets.xcassets */,
 				83BAB91C2B0F3021006793FA /* Preview Content */,
 			);
@@ -780,7 +804,7 @@
 		83BABB112B0F3135006793FA /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
-				83BABB122B0F3140006793FA /* RainbowModifier.swift */,
+				8322590A2B1495E5008FB987 /* RainbowModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -1259,6 +1283,9 @@
 				83BABB1E2B0F3284006793FA /* PBXTargetDependency */,
 			);
 			name = KeyboardProjectStructure;
+			packageProductDependencies = (
+				832259532B14A328008FB987 /* AnimatedGradientView */,
+			);
 			productName = KeyboardProjectStructure;
 			productReference = 83BAB9132B0F301F006793FA /* KeyboardProjectStructure.app */;
 			productType = "com.apple.product-type.application";
@@ -1276,6 +1303,9 @@
 			dependencies = (
 			);
 			name = KeyboardExtension;
+			packageProductDependencies = (
+				832259552B14A331008FB987 /* AnimatedGradientView */,
+			);
 			productName = KeyboardExtension;
 			productReference = 83BABB182B0F3284006793FA /* KeyboardExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1358,6 +1388,9 @@
 				ca,
 			);
 			mainGroup = 83BAB90A2B0F301F006793FA;
+			packageReferences = (
+				8322594F2B14A2D0008FB987 /* XCRemoteSwiftPackageReference "AnimatedGradientView" */,
+			);
 			productRefGroup = 83BAB9142B0F301F006793FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1415,6 +1448,7 @@
 				83BABE312B0F35AD006793FA /* Autocomplete+ToolbarItem.swift in Sources */,
 				83BABEEB2B0F35AD006793FA /* Gestures+KeyboardGesture.swift in Sources */,
 				83BABE872B0F35AD006793FA /* AudioFeedback+Engine.swift in Sources */,
+				832259512B14A2E3008FB987 /* AnimatedGradient.swift in Sources */,
 				83BABF1B2B0F35AD006793FA /* View+KeyboardButtonStyle.swift in Sources */,
 				83BABEBF2B0F35AD006793FA /* KeyboardInputViewController+Host.swift in Sources */,
 				83BABE412B0F35AD006793FA /* KeyboardType+Autocomplete.swift in Sources */,
@@ -1530,7 +1564,6 @@
 				83BABE232B0F35AD006793FA /* UITextDocumentProxy+Words.swift in Sources */,
 				83BABED32B0F35AD006793FA /* Keyboard.swift in Sources */,
 				83BABF612B0F35AD006793FA /* LocaleDictionary.swift in Sources */,
-				83BABB132B0F3140006793FA /* RainbowModifier.swift in Sources */,
 				83BABF272B0F35AD006793FA /* Styling+KeyboardAppearanceViewModifier.swift in Sources */,
 				83BABE632B0F35AD006793FA /* KeyboardLayout.swift in Sources */,
 				83BABE392B0F35AD006793FA /* AutocompleteContext.swift in Sources */,
@@ -1557,6 +1590,7 @@
 				83BABF1D2B0F35AD006793FA /* KeyboardStyle+Callouts.swift in Sources */,
 				83BABE7B2B0F35AD006793FA /* KeyboardStateInspector.swift in Sources */,
 				83BABF132B0F35AD006793FA /* KeyboardFont+FontWeight.swift in Sources */,
+				8322590B2B1495E5008FB987 /* RainbowModifier.swift in Sources */,
 				83BABEEF2B0F35AD006793FA /* Gestures+RepeatTimer.swift in Sources */,
 				83BABE352B0F35AD006793FA /* Autocomplete+ToolbarSeparator.swift in Sources */,
 				83BABF8A2B0F3D17006793FA /* Theme.swift in Sources */,
@@ -1629,6 +1663,7 @@
 				83BABF6A2B0F35AD006793FA /* BaseCalloutActionProvider.swift in Sources */,
 				83BABF5E2B0F35AD006793FA /* Locale+Name.swift in Sources */,
 				83BABED42B0F35AD006793FA /* Keyboard.swift in Sources */,
+				8322590C2B1495F7008FB987 /* RainbowModifier.swift in Sources */,
 				83BABF1C2B0F35AD006793FA /* View+KeyboardButtonStyle.swift in Sources */,
 				83BABE0A2B0F35AD006793FA /* KeyboardButton+Content.swift in Sources */,
 				83BABE382B0F35AD006793FA /* Autocomplete+ToolbarItemTitle.swift in Sources */,
@@ -1714,7 +1749,6 @@
 				83BABECC2B0F35AD006793FA /* SystemKeyboard.swift in Sources */,
 				83BABE962B0F35AD006793FA /* CGRect+Valid.swift in Sources */,
 				83BABE9A2B0F35AD006793FA /* String+Sentences.swift in Sources */,
-				83BABF832B0F35F7006793FA /* RainbowModifier.swift in Sources */,
 				83BABE622B0F35AD006793FA /* StandardKeyboardLayoutProvider.swift in Sources */,
 				83BABE4C2B0F35AD006793FA /* KeyboardLayoutProviderProxy.swift in Sources */,
 				83BABF3A2B0F35AD006793FA /* KeyboardPreviews+Keyboard.swift in Sources */,
@@ -1734,6 +1768,7 @@
 				83BABE322B0F35AD006793FA /* Autocomplete+ToolbarItem.swift in Sources */,
 				83BABECE2B0F35AD006793FA /* Keyboard+BackspaceRange.swift in Sources */,
 				83BABEB02B0F35AD006793FA /* Dictation.swift in Sources */,
+				832259572B14A35F008FB987 /* AnimatedGradient.swift in Sources */,
 				83BABE9E2B0F35AD006793FA /* KeyboardKit.docc in Sources */,
 				83BABEEA2B0F35AD006793FA /* Gestures.swift in Sources */,
 				83BABEC02B0F35AD006793FA /* KeyboardInputViewController+Host.swift in Sources */,
@@ -2150,6 +2185,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8322594F2B14A2D0008FB987 /* XCRemoteSwiftPackageReference "AnimatedGradientView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rwbutler/AnimatedGradientView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		832259532B14A328008FB987 /* AnimatedGradientView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8322594F2B14A2D0008FB987 /* XCRemoteSwiftPackageReference "AnimatedGradientView" */;
+			productName = AnimatedGradientView;
+		};
+		832259552B14A331008FB987 /* AnimatedGradientView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8322594F2B14A2D0008FB987 /* XCRemoteSwiftPackageReference "AnimatedGradientView" */;
+			productName = AnimatedGradientView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83BAB90B2B0F301F006793FA /* Project object */;
 }

@@ -91,7 +91,7 @@ extension Theme {
             cornerRadius: 15,
             border: .init(color: .blue, size: 2)
         ),
-        background: .color(.yellow),
+        background: .color(.white),
         callout: .init(background: .black ),
         sound: .init(name: "sound name", volume: 10)
     )

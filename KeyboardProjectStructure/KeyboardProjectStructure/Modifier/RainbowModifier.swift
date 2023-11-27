@@ -35,14 +35,15 @@ struct RainbowAnimation: ViewModifier {
         let gradient = LinearGradient(gradient: Gradient(colors: hueColors+hueColors), startPoint: .topLeading, endPoint: .bottomTrailing)
         return content
             .overlay(GeometryReader { proxy in
-                if sharedDefault.bool(forKey: Constant.NEON_LED_ANIMATION) {
-                    ZStack {
-                        gradient
-                            .frame(width: proxy.size.width * 2)
-                            .offset(x: self.isOn ? 0 : -proxy.size.width)
-                    }
-                    .allowsHitTesting(false)
-                }
+//                if sharedDefault.bool(forKey: Constant.NEON_LED_ANIMATION) {
+//                    ZStack {
+//                        gradient
+//                            .frame(width: proxy.size.width * 2)
+//                            .offset(x: self.isOn ? 0 : -proxy.size.width)
+//                    }
+//                    .allowsHitTesting(false)
+//                }
+                AnimatedGradient()
         })
         .onAppear {
             withAnimation(self.animation) {
