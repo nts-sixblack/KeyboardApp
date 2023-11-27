@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83B94C702B142EE300D92BBB /* CustomCalloutActionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */; };
+		83B94C732B1459DD00D92BBB /* CustomAutoCompleteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */; };
 		83BAB9172B0F3020006793FA /* KeyboardProjectStructureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB9162B0F3020006793FA /* KeyboardProjectStructureApp.swift */; };
 		83BAB9192B0F3020006793FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB9182B0F3020006793FA /* ContentView.swift */; };
 		83BAB91B2B0F3021006793FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BAB91A2B0F3021006793FA /* Assets.xcassets */; };
@@ -442,6 +443,7 @@
 
 /* Begin PBXFileReference section */
 		83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutActionProvider.swift; sourceTree = "<group>"; };
+		83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAutoCompleteProvider.swift; sourceTree = "<group>"; };
 		83BAB9132B0F301F006793FA /* KeyboardProjectStructure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardProjectStructure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BAB9162B0F3020006793FA /* KeyboardProjectStructureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardProjectStructureApp.swift; sourceTree = "<group>"; };
 		83BAB9182B0F3020006793FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 				83D40CDF2B107CDB00F610E4 /* CustomStyleProvider.swift */,
 				83D40CDD2B107CB400F610E4 /* CustomLayoutProvider.swift */,
 				83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */,
+				83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */,
 				83BABB1C2B0F3284006793FA /* Info.plist */,
 			);
 			path = KeyboardExtension;
@@ -1721,6 +1724,7 @@
 				83BABF3E2B0F35AD006793FA /* KeyboardPreviews+Styling.swift in Sources */,
 				83BABE0E2B0F35AD006793FA /* KeyboardButton+Shadow.swift in Sources */,
 				83BABE1A2B0F35AD006793FA /* KeyboardButton+Title.swift in Sources */,
+				83B94C732B1459DD00D92BBB /* CustomAutoCompleteProvider.swift in Sources */,
 				83BABF062B0F35AD006793FA /* StandardKeyboardActionHandler.swift in Sources */,
 				83BABF202B0F35AD006793FA /* KeyboardStyle.swift in Sources */,
 				83BABF2E2B0F35AD006793FA /* InterfaceOrientation.swift in Sources */,

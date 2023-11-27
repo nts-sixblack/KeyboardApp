@@ -58,6 +58,22 @@ struct ContentView: View {
             }, label: {
                 Text("Toggle Popup Press key")
             })
+            
+            Button(action: {
+                var value = sharedDefault.bool(forKey: Constant.SHOW_SUGGESTIONS)
+                value.toggle()
+                sharedDefault.set(value , forKey: Constant.SHOW_SUGGESTIONS)
+            }, label: {
+                Text("Toggle show suggestion")
+            })
+            
+            Button(action: {
+                var value = sharedDefault.bool(forKey: Constant.AUTO_COMPLETE)
+                value.toggle()
+                sharedDefault.set(value , forKey: Constant.AUTO_COMPLETE)
+            }, label: {
+                Text("Toggle auto complete")
+            })
         }
         .padding()
     }

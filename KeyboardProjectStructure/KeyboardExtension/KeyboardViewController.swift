@@ -23,8 +23,13 @@ class KeyboardViewController: KeyboardInputViewController {
     override func viewDidLoad() {
         
         /// auto capitalization
-        let auto = Keyboard.AutocapitalizationType.getType(sharedDefault.string(forKey: Constant.AUTO_CAPITALIZATION) ?? "")
-        state.keyboardContext.autocapitalizationTypeOverride = auto
+        state.keyboardContext.autocapitalizationTypeOverride = Keyboard.AutocapitalizationType.getType(sharedDefault.string(forKey: Constant.AUTO_CAPITALIZATION) ?? "")
+        
+        /// enable show suggestion
+        state.autocompleteContext.isEnabled = sharedDefault.bool(forKey: Constant.SHOW_SUGGESTIONS)
+        
+        /// service suggestion
+        services.autocompleteProvider = CustomAutoCompleteProvider()
         
         /// style provider
         /// style of keyboard button and callout action

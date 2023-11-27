@@ -63,6 +63,8 @@ public struct SystemKeyboard<
             emojiKeyboard: emojiKeyboard,
             toolbar: toolbar
         )
+        
+        
     }
     
     /**
@@ -109,6 +111,7 @@ public struct SystemKeyboard<
         _autocompleteContext = ObservedObject(wrappedValue: autocompleteContext)
         _calloutContext = ObservedObject(wrappedValue: calloutContext ?? .disabled)
         _keyboardContext = ObservedObject(wrappedValue: keyboardContext)
+        self.items = autocompleteContext.suggestions.map { BarItem($0) }
     }
     
 
@@ -140,6 +143,7 @@ public struct SystemKeyboard<
         _autocompleteContext = ObservedObject(wrappedValue: autocompleteContext)
         _calloutContext = ObservedObject(wrappedValue: calloutContext ?? .disabled)
         _keyboardContext = ObservedObject(wrappedValue: keyboardContext)
+        self.items = autocompleteContext.suggestions.map { BarItem($0) }
     }
     
     #if os(iOS) || os(tvOS)
@@ -222,6 +226,18 @@ public struct SystemKeyboard<
     /// The standard toolbar view type.
     public typealias StandardToolbarView = AutocompleteToolbar<Autocomplete.ToolbarItem, Autocomplete.ToolbarSeparator>
 
+//    MARK: Suggestion
+    private let items: [BarItem]
+    
+    struct BarItem: Identifiable {
+        
+        init(_ suggestion: Autocomplete.Suggestion) {
+            self.suggestion = suggestion
+        }
+        
+        public let id = UUID()
+        public let suggestion: Autocomplete.Suggestion
+    }
     
     private let actionHandler: KeyboardActionHandler
     private let layout: KeyboardLayout
@@ -302,10 +318,20 @@ private extension SystemKeyboard {
     func bodyContent(for size: CGSize) -> some View {
         VStack(spacing: 0) {
 //            toolbar()
-//            HStack {
-//                Text("abc")
-//            }
-//            .frame(height: 50)
+            
+            /// suggestion
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(items) { item in
+                        Text("\(item.suggestion.text)")
+                            .background( item.suggestion.isAutocorrect ? .brown : .clear )
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .background(Color.blue)
+            }
+            
             systemKeyboard(for: size)
 //                .rainbowAnimation()
         }
