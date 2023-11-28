@@ -36,6 +36,8 @@ public struct SystemKeyboardItem<Content: View>: View {
         calloutContext: CalloutContext?,
         keyboardWidth: CGFloat,
         inputWidth: CGFloat,
+        overlayKeyboard: Bool,
+        theme: Theme,
         content: Content
     ) {
         self.item = item
@@ -46,6 +48,9 @@ public struct SystemKeyboardItem<Content: View>: View {
         self.keyboardWidth = keyboardWidth
         self.inputWidth = inputWidth
         self.content = content
+        
+        self.overlayKeyboard = overlayKeyboard
+        self.theme = theme
     }
     
     private let item: KeyboardLayout.Item
@@ -55,6 +60,9 @@ public struct SystemKeyboardItem<Content: View>: View {
     private let keyboardWidth: CGFloat
     private let inputWidth: CGFloat
     private let content: Content
+    
+    private let overlayKeyboard: Bool
+    private let theme: Theme
     
     @ObservedObject
     private var keyboardContext: KeyboardContext
@@ -108,6 +116,13 @@ public struct SystemKeyboardItem<Content: View>: View {
     }
     
     private var buttonStyle: KeyboardStyle.Button {
-        item.action.isSpacer ? .spacer : styleProvider.buttonStyle(for: item.action, isPressed: isPressed)
+        var style = item.action.isSpacer ? .spacer : styleProvider.buttonStyle(for: item.action, isPressed: isPressed)
+        
+        if overlayKeyboard {
+            style.background = .color(.clear)
+            style.borderColor = .clear
+        }
+        
+        return style
     }
 }

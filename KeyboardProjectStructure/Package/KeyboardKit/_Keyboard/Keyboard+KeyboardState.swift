@@ -45,6 +45,9 @@ public extension Keyboard {
         
         /// The keyboard context to use.
         public lazy var keyboardContext = KeyboardContext()
+        
+        /// Theme keyboard
+        public lazy var keyboardTheme: Theme = .theme1
     }
 }
 
@@ -67,5 +70,6 @@ public extension View {
             .environmentObject(state.dictationContext)
             .environmentObject(state.feedbackConfiguration)
             .environmentObject(state.keyboardContext)
+            .environmentObject(state.keyboardTheme)
     }
 }

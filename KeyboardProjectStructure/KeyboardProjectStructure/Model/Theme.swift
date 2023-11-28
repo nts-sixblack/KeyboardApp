@@ -7,22 +7,23 @@
 
 import Foundation
 import SwiftUI
+import AnimatedGradientView
 
 enum ThemeStyle: String, CaseIterable {
     case standard
     case theme1
     case theme2
     
-    static func getTheme(_ rawValue: String) -> Theme? {
+    static func getTheme(_ rawValue: String) -> Theme {
         for style in ThemeStyle.allCases {
             if rawValue.localizedLowercase == style.rawValue.localizedLowercase {
                 return style.getTheme()
             }
         }
-        return nil
+        return .standard
     }
     
-    private func getTheme() -> Theme? {
+    private func getTheme() -> Theme {
         switch self {
         case .standard:
             return Theme.standard
@@ -34,66 +35,67 @@ enum ThemeStyle: String, CaseIterable {
     }
 }
 
-struct Theme: Codable {
+public class Theme: ObservableObject {
     
     var button: KeyboardStyle.Button
     var background: KeyboardStyle.Background
     var callout: KeyboardCalloutModel
     var sound: KeyboardSoundModel
-    var neonAnimation: Bool
+    var disableNeonAnimationCharacter: Bool
+    var disableNeonAnimationButton: Bool
+    var buttonNeonAnimation: [AnimatedGradientView.AnimationValue]?
+    var backgroundNeonAnimation: [AnimatedGradientView.AnimationValue]?
     
-    init(button: KeyboardStyle.Button, background: KeyboardStyle.Background, callout: KeyboardCalloutModel, sound: KeyboardSoundModel, neonAnimation: Bool = false) {
+    init(
+        button: KeyboardStyle.Button,
+        background: KeyboardStyle.Background,
+        callout: KeyboardCalloutModel,
+        sound: KeyboardSoundModel,
+        disableNeonAnimationCharacter: Bool = false,
+        disableNeonAnimationButton: Bool = false,
+        buttonNeonAnimation: [AnimatedGradientView.AnimationValue]? = nil,
+        backgroundNeonAnimation: [AnimatedGradientView.AnimationValue]? = nil
+    ) {
         self.button = button
         self.background = background
         self.callout = callout
         self.sound = sound
-        self.neonAnimation = neonAnimation
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case button
-        case background
-        case callout
-        case sound
-        case neonAnimation
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(button, forKey: .button)
-        try container.encode(background, forKey: .background)
-        try container.encode(callout, forKey: .callout)
-        try container.encode(sound, forKey: .sound)
-        try container.encode(neonAnimation, forKey: .neonAnimation)
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.button = try container.decode(KeyboardStyle.Button.self, forKey: .button)
-        self.background = try container.decode(KeyboardStyle.Background.self, forKey: .background)
-        self.callout = try container.decode(KeyboardCalloutModel.self, forKey: .callout)
-        self.sound = try container.decode(KeyboardSoundModel.self, forKey: .sound)
-        self.neonAnimation = try container.decode(Bool.self, forKey: .neonAnimation)
+        self.buttonNeonAnimation = buttonNeonAnimation
+        self.backgroundNeonAnimation = backgroundNeonAnimation
+        self.disableNeonAnimationCharacter = disableNeonAnimationCharacter
+        self.disableNeonAnimationButton = disableNeonAnimationButton
     }
 }
 
 extension Theme {
     
-    static var standard: Theme? = nil
-    
-    static var theme1: Theme = .init(
+    static var standard: Theme = .init(
         button: .init(
-            background: .color(.red.opacity(0.3)),
+            background: .color(.red),
             foregroundColor: .red,
             font: .footnote,
             cornerRadius: 15,
             border: .init(color: .blue, size: 2)
         ),
-        background: .color(.white),
+        background: .color(.black),
         callout: .init(background: .black ),
         sound: .init(name: "sound name", volume: 10)
+    )
+    
+    static var theme1: Theme = .init(
+        button: .init(
+            background: .color(.clear),
+            foregroundColor: .blue,
+            font: .footnote,
+            cornerRadius: 15,
+            border: .init(color: .blue, size: 2)
+        ),
+        background: .color(.black),
+        callout: .init(background: .black ),
+        sound: .init(name: "sound name", volume: 10),
+//        disableNeonAnimationCharacter: true, 
+//        disableNeonAnimationButton: true,
+        buttonNeonAnimation: NeonStyle.colorStrip.getStyle()
     )
     
     static var theme2: Theme = .init(
@@ -102,6 +104,8 @@ extension Theme {
         ),
         background: .init(backgroundColor: .red.opacity(0.6)),
         callout: .init(background: .red),
-        sound: .init(name: "abc", volume: 1)
+        sound: .init(name: "abc", volume: 1),
+        disableNeonAnimationButton: true,
+        buttonNeonAnimation: NeonStyle.colorStrip.getStyle()
     )
 }

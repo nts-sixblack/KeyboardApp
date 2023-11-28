@@ -12,11 +12,11 @@ class KeyboardViewController: KeyboardInputViewController {
     
     let sharedDefault = UserDefaults(suiteName: "group.com.maxmobile.NeonLedKeyboard")!
     
-    var theme: Theme? {
+    var theme: Theme {
         if let themeName = sharedDefault.string(forKey: Constant.THEME_KEYBOARD) {
             return ThemeStyle.getTheme(themeName)
         } else {
-            return nil
+            return .standard
         }
     }
     
@@ -27,6 +27,9 @@ class KeyboardViewController: KeyboardInputViewController {
         
         /// enable show suggestion
         state.autocompleteContext.isEnabled = sharedDefault.bool(forKey: Constant.SHOW_SUGGESTIONS)
+        
+        /// theme keyboard
+        state.keyboardTheme = theme
         
         /// service suggestion
         services.autocompleteProvider = CustomAutoCompleteProvider()
@@ -62,9 +65,10 @@ class KeyboardViewController: KeyboardInputViewController {
                 toolbar: { $0.view }
             )
             .background(
-                VStack {
-                    if let theme = self.theme {
-                        theme.background.backgroundView
+                ZStack {
+                    self.theme.background.backgroundView
+                    if let backgroundNeonAnimation = self.theme.backgroundNeonAnimation {
+                        AnimatedGradient(animationValues: backgroundNeonAnimation)
                     }
                 }
             )

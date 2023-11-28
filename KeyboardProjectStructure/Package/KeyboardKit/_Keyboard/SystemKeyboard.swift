@@ -54,6 +54,7 @@ public struct SystemKeyboard<
             layout: services.layoutProvider.keyboardLayout(for: state.keyboardContext),
             actionHandler: services.actionHandler,
             styleProvider: services.styleProvider,
+            theme: state.keyboardTheme,
             keyboardContext: state.keyboardContext,
             autocompleteContext: state.autocompleteContext,
             calloutContext: state.calloutContext,
@@ -87,6 +88,7 @@ public struct SystemKeyboard<
         layout: KeyboardLayout,
         actionHandler: KeyboardActionHandler,
         styleProvider: KeyboardStyleProvider,
+        theme: Theme,
         keyboardContext: KeyboardContext,
         autocompleteContext: AutocompleteContext,
         calloutContext: CalloutContext?,
@@ -112,69 +114,74 @@ public struct SystemKeyboard<
         _calloutContext = ObservedObject(wrappedValue: calloutContext ?? .disabled)
         _keyboardContext = ObservedObject(wrappedValue: keyboardContext)
         self.items = autocompleteContext.suggestions.map { BarItem($0) }
+        
+        self.theme = theme
     }
     
 
-    @available(*, deprecated, message: "Use the initializer without autocomplete toolbar parameters. Warning - the width and autocomplete toolbar parameters no longer have any effect!")
-    public init(
-        layout: KeyboardLayout,
-        actionHandler: KeyboardActionHandler,
-        styleProvider: KeyboardStyleProvider,
-        autocompleteContext: AutocompleteContext,
-        autocompleteToolbar: AutocompleteToolbarMode,
-        autocompleteToolbarAction: @escaping AutocompleteToolbarAction,
-        keyboardContext: KeyboardContext,
-        calloutContext: CalloutContext?,
-        renderBackground: Bool = true,
-        @ViewBuilder buttonContent: @escaping ButtonContentBuilder,
-        @ViewBuilder buttonView: @escaping ButtonViewBuilder,
-        @ViewBuilder emojiKeyboard: @escaping EmojiKeyboardBuilder,
-        @ViewBuilder toolbar: @escaping ToolbarBuilder
-    ) {
-        self.layout = layout
-        self.layoutConfig = .standard(for: keyboardContext)
-        self.actionHandler = actionHandler
-        self.styleProvider = styleProvider
-        self.renderBackground = renderBackground
-        self.buttonContentBuilder = buttonContent
-        self.buttonViewBuilder = buttonView
-        self.emojiKeyboardBuilder = emojiKeyboard
-        self.toolbarBuilder = toolbar
-        _autocompleteContext = ObservedObject(wrappedValue: autocompleteContext)
-        _calloutContext = ObservedObject(wrappedValue: calloutContext ?? .disabled)
-        _keyboardContext = ObservedObject(wrappedValue: keyboardContext)
-        self.items = autocompleteContext.suggestions.map { BarItem($0) }
-    }
+//    @available(*, deprecated, message: "Use the initializer without autocomplete toolbar parameters. Warning - the width and autocomplete toolbar parameters no longer have any effect!")
+//    public init(
+//        layout: KeyboardLayout,
+//        actionHandler: KeyboardActionHandler,
+//        styleProvider: KeyboardStyleProvider,
+//        theme: Theme,
+//        autocompleteContext: AutocompleteContext,
+//        autocompleteToolbar: AutocompleteToolbarMode,
+//        autocompleteToolbarAction: @escaping AutocompleteToolbarAction,
+//        keyboardContext: KeyboardContext,
+//        calloutContext: CalloutContext?,
+//        renderBackground: Bool = true,
+//        @ViewBuilder buttonContent: @escaping ButtonContentBuilder,
+//        @ViewBuilder buttonView: @escaping ButtonViewBuilder,
+//        @ViewBuilder emojiKeyboard: @escaping EmojiKeyboardBuilder,
+//        @ViewBuilder toolbar: @escaping ToolbarBuilder
+//    ) {
+//        self.layout = layout
+//        self.layoutConfig = .standard(for: keyboardContext)
+//        self.actionHandler = actionHandler
+//        self.styleProvider = styleProvider
+//        self.renderBackground = renderBackground
+//        self.buttonContentBuilder = buttonContent
+//        self.buttonViewBuilder = buttonView
+//        self.emojiKeyboardBuilder = emojiKeyboard
+//        self.toolbarBuilder = toolbar
+//        _autocompleteContext = ObservedObject(wrappedValue: autocompleteContext)
+//        _calloutContext = ObservedObject(wrappedValue: calloutContext ?? .disabled)
+//        _keyboardContext = ObservedObject(wrappedValue: keyboardContext)
+//        self.items = autocompleteContext.suggestions.map { BarItem($0) }
+//        
+//        self.theme = theme
+//    }
     
     #if os(iOS) || os(tvOS)
-    @available(*, deprecated, message: "Use the state and services initializer instead. Warning - the width and autocomplete toolbar parameters no longer have any effect!")
-    public init(
-        controller: KeyboardInputViewController,
-        autocompleteToolbar: AutocompleteToolbarMode = .automatic,
-        autocompleteToolbarAction: AutocompleteToolbarAction? = nil,
-        width: CGFloat? = nil,
-        renderBackground: Bool = true,
-        @ViewBuilder buttonContent: @escaping ButtonContentBuilder,
-        @ViewBuilder buttonView: @escaping ButtonViewBuilder,
-        @ViewBuilder emojiKeyboard: @escaping EmojiKeyboardBuilder,
-        @ViewBuilder toolbar: @escaping ToolbarBuilder
-    ) {
-        self.init(
-            layout: controller.services.layoutProvider.keyboardLayout(for: controller.state.keyboardContext),
-            actionHandler: controller.services.actionHandler,
-            styleProvider: controller.services.styleProvider,
-            autocompleteContext: controller.state.autocompleteContext,
-            autocompleteToolbar: autocompleteToolbar,
-            autocompleteToolbarAction: { _ in },
-            keyboardContext: controller.state.keyboardContext,
-            calloutContext: controller.state.calloutContext,
-            renderBackground: renderBackground,
-            buttonContent: buttonContent,
-            buttonView: buttonView,
-            emojiKeyboard: emojiKeyboard,
-            toolbar: toolbar
-        )
-    }
+//    @available(*, deprecated, message: "Use the state and services initializer instead. Warning - the width and autocomplete toolbar parameters no longer have any effect!")
+//    public init(
+//        controller: KeyboardInputViewController,
+//        autocompleteToolbar: AutocompleteToolbarMode = .automatic,
+//        autocompleteToolbarAction: AutocompleteToolbarAction? = nil,
+//        width: CGFloat? = nil,
+//        renderBackground: Bool = true,
+//        @ViewBuilder buttonContent: @escaping ButtonContentBuilder,
+//        @ViewBuilder buttonView: @escaping ButtonViewBuilder,
+//        @ViewBuilder emojiKeyboard: @escaping EmojiKeyboardBuilder,
+//        @ViewBuilder toolbar: @escaping ToolbarBuilder
+//    ) {
+//        self.init(
+//            layout: controller.services.layoutProvider.keyboardLayout(for: controller.state.keyboardContext),
+//            actionHandler: controller.services.actionHandler,
+//            styleProvider: controller.services.styleProvider,
+//            autocompleteContext: controller.state.autocompleteContext,
+//            autocompleteToolbar: autocompleteToolbar,
+//            autocompleteToolbarAction: { _ in },
+//            keyboardContext: controller.state.keyboardContext,
+//            calloutContext: controller.state.calloutContext,
+//            renderBackground: renderBackground,
+//            buttonContent: buttonContent,
+//            buttonView: buttonView,
+//            emojiKeyboard: emojiKeyboard,
+//            toolbar: toolbar
+//        )
+//    }
     #endif
 
 
@@ -249,6 +256,8 @@ public struct SystemKeyboard<
     private let buttonViewBuilder: ButtonViewBuilder
     private let emojiKeyboardBuilder: EmojiKeyboardBuilder
     private let toolbarBuilder: ToolbarBuilder
+    
+    private let theme: Theme
 
     public typealias AutocompleteToolbarAction = (Autocomplete.Suggestion) -> Void
     
@@ -332,15 +341,43 @@ private extension SystemKeyboard {
                 .background(Color.blue)
             }
             
-            systemKeyboard(for: size)
-            .rainbowAnimation()
+            VStack {
+                if theme.disableNeonAnimationButton || theme.disableNeonAnimationCharacter {
+                    Color.blue
+                } else {
+                    Color.yellow
+                }
+            }
+            .frame(height: 50)
+            
+            if theme.disableNeonAnimationCharacter && theme.disableNeonAnimationButton {
+                systemKeyboard(for: size)
+            } else if theme.disableNeonAnimationCharacter && !theme.disableNeonAnimationButton {
+                systemKeyboard(for: size)
+                    .rainbowAnimation(theme)
+                    .overlay {
+                        systemKeyboard(for: size, overlayKeyboard: theme.disableNeonAnimationCharacter || theme.disableNeonAnimationButton)
+                    }
+            } else if !theme.disableNeonAnimationCharacter && theme.disableNeonAnimationButton {
+                systemKeyboard(for: size)
+                    .overlay {
+                        systemKeyboard(for: size, overlayKeyboard: theme.disableNeonAnimationCharacter || theme.disableNeonAnimationButton)
+                            .rainbowAnimation(theme)
+                    }
+            } else {
+                systemKeyboard(for: size)
+                    .rainbowAnimation(theme)
+            }
+            
+            
+            
         }
     }
 
-    func systemKeyboard(for size: CGSize) -> some View {
+    func systemKeyboard(for size: CGSize, overlayKeyboard: Bool = false) -> some View {
         VStack(spacing: 0) {
             ForEach(Array(layout.itemRows.enumerated()), id: \.offset) {
-                items(for: size, layout: layout, itemRow: $0.element)
+                items(for: size, layout: layout, itemRow: $0.element, overlayKeyboard: overlayKeyboard)
             }
         }
         .padding(styleProvider.keyboardEdgeInsets)
@@ -350,11 +387,12 @@ private extension SystemKeyboard {
     func items(
         for size: CGSize,
         layout: KeyboardLayout,
-        itemRow: KeyboardLayout.ItemRow
+        itemRow: KeyboardLayout.ItemRow,
+        overlayKeyboard: Bool
     ) -> some View {
         HStack(spacing: 0) {
             ForEach(Array(itemRow.enumerated()), id: \.offset) {
-                buttonView(for: $0.element, keyboardSize: size)
+                buttonView(for: $0.element, keyboardSize: size, overlayKeyboard: overlayKeyboard)
             }.id(keyboardContext.locale.identifier)
         }
     }
@@ -377,7 +415,8 @@ private extension SystemKeyboard {
     
     func buttonView(
         for item: KeyboardLayout.Item,
-        keyboardSize: CGSize
+        keyboardSize: CGSize,
+        overlayKeyboard: Bool
     ) -> ButtonView {
         buttonViewBuilder((
             item: item,
@@ -389,6 +428,8 @@ private extension SystemKeyboard {
                 calloutContext: calloutContext,
                 keyboardWidth: keyboardSize.width,
                 inputWidth: layout.inputWidth(for: keyboardSize.width),
+                overlayKeyboard: overlayKeyboard,
+                theme: theme,
                 content: buttonContent(for: item)
                 
             )
@@ -466,12 +507,12 @@ struct SystemKeyboard_Previews: PreviewProvider {
         var body: some View {
             VStack(spacing: 10) {
                 Group {
-                    ZStack {
-                        keyboard.offset(x: -200)
-                        keyboard.offset(x: 200)
-                    }
-                    
-                    keyboard.frame(width: 250)
+//                    ZStack {
+//                        keyboard.offset(x: -200)
+//                        keyboard.offset(x: 200)
+//                    }
+//                    
+//                    keyboard.frame(width: 250)
                     
                     SystemKeyboard(
                         state: controller.state,
