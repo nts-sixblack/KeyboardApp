@@ -19,12 +19,24 @@ struct ContentView: View {
             TextField("text", text: $text)
             
             Button(action: {
-                var value = sharedDefault.bool(forKey: Constant.NEON_LED_ANIMATION)
-                value.toggle()
-                sharedDefault.set(value , forKey: Constant.NEON_LED_ANIMATION)
+                sharedDefault.set(ThemeStyle.standard.rawValue, forKey: Constant.THEME_KEYBOARD)
                 UIApplication.shared.endEditing()
             }, label: {
-                Text("Neon led animation")
+                Text("Standard led animation")
+            })
+            
+            Button(action: {
+                sharedDefault.set(ThemeStyle.linearLTR.rawValue, forKey: Constant.THEME_KEYBOARD)
+                UIApplication.shared.endEditing()
+            }, label: {
+                Text("Linear LTR")
+            })
+            
+            Button(action: {
+                sharedDefault.set(ThemeStyle.linearRTL.rawValue, forKey: Constant.THEME_KEYBOARD)
+                UIApplication.shared.endEditing()
+            }, label: {
+                Text("Linear RTL")
             })
             
             Button(action: {
@@ -39,6 +51,20 @@ struct ContentView: View {
                 UIApplication.shared.endEditing()
             }, label: {
                 Text("Theme2")
+            })
+            
+            Button(action: {
+                sharedDefault.set(ThemeStyle.theme3.rawValue, forKey: Constant.THEME_KEYBOARD)
+                UIApplication.shared.endEditing()
+            }, label: {
+                Text("Theme3")
+            })
+            
+            Button(action: {
+                sharedDefault.set(ThemeStyle.theme4.rawValue, forKey: Constant.THEME_KEYBOARD)
+                UIApplication.shared.endEditing()
+            }, label: {
+                Text("Theme4")
             })
             
             Button(action: {

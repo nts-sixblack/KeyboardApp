@@ -15,6 +15,8 @@
 		832259572B14A35F008FB987 /* AnimatedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832259502B14A2E3008FB987 /* AnimatedGradient.swift */; };
 		832259592B157995008FB987 /* NeonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832259582B157995008FB987 /* NeonStyle.swift */; };
 		8322595A2B157995008FB987 /* NeonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832259582B157995008FB987 /* NeonStyle.swift */; };
+		8322595C2B15DA8E008FB987 /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322595B2B15DA8E008FB987 /* Rainbow.swift */; };
+		8322595D2B15DA8E008FB987 /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322595B2B15DA8E008FB987 /* Rainbow.swift */; };
 		83B94C702B142EE300D92BBB /* CustomCalloutActionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */; };
 		83B94C732B1459DD00D92BBB /* CustomAutoCompleteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */; };
 		83BAB9172B0F3020006793FA /* KeyboardProjectStructureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB9162B0F3020006793FA /* KeyboardProjectStructureApp.swift */; };
@@ -451,6 +453,7 @@
 		8322590A2B1495E5008FB987 /* RainbowModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowModifier.swift; sourceTree = "<group>"; };
 		832259502B14A2E3008FB987 /* AnimatedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradient.swift; sourceTree = "<group>"; };
 		832259582B157995008FB987 /* NeonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonStyle.swift; sourceTree = "<group>"; };
+		8322595B2B15DA8E008FB987 /* Rainbow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rainbow.swift; sourceTree = "<group>"; };
 		83B94C6F2B142EE300D92BBB /* CustomCalloutActionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutActionProvider.swift; sourceTree = "<group>"; };
 		83B94C722B1459DD00D92BBB /* CustomAutoCompleteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAutoCompleteProvider.swift; sourceTree = "<group>"; };
 		83BAB9132B0F301F006793FA /* KeyboardProjectStructure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardProjectStructure.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -808,6 +811,7 @@
 			isa = PBXGroup;
 			children = (
 				8322590A2B1495E5008FB987 /* RainbowModifier.swift */,
+				8322595B2B15DA8E008FB987 /* Rainbow.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -1467,6 +1471,7 @@
 				83BABE772B0F35AD006793FA /* Bundle+KeyboardLocale.swift in Sources */,
 				83BABF472B0F35AD006793FA /* String+Chars.swift in Sources */,
 				83BABE0D2B0F35AD006793FA /* KeyboardButton+Shadow.swift in Sources */,
+				8322595C2B15DA8E008FB987 /* Rainbow.swift in Sources */,
 				83BABE272B0F35AD006793FA /* UITextDocumentProxy+Quotation.swift in Sources */,
 				83BABF7D2B0F35AD006793FA /* CalloutContext+ActionContext.swift in Sources */,
 				83D40CED2B1087E200F610E4 /* Constant.swift in Sources */,
@@ -1741,6 +1746,7 @@
 				83BABEEE2B0F35AD006793FA /* Gestures+SpaceDragGestureHandler.swift in Sources */,
 				83BABED82B0F35AD006793FA /* Keyboard+RootView.swift in Sources */,
 				83BABE202B0F35AD006793FA /* UITextDocumentProxy+Delete.swift in Sources */,
+				8322595D2B15DA8E008FB987 /* Rainbow.swift in Sources */,
 				83BABEFA2B0F35AD006793FA /* View+KeyboardButtonGestures.swift in Sources */,
 				83BABEFC2B0F35AD006793FA /* DragGestureHandler.swift in Sources */,
 				83BABF7C2B0F35AD006793FA /* CustomRoundedRectangle.swift in Sources */,

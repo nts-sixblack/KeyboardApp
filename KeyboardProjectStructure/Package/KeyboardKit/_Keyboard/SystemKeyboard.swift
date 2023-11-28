@@ -341,15 +341,6 @@ private extension SystemKeyboard {
                 .background(Color.blue)
             }
             
-            VStack {
-                if theme.disableNeonAnimationButton || theme.disableNeonAnimationCharacter {
-                    Color.blue
-                } else {
-                    Color.yellow
-                }
-            }
-            .frame(height: 50)
-            
             if theme.disableNeonAnimationCharacter && theme.disableNeonAnimationButton {
                 systemKeyboard(for: size)
             } else if theme.disableNeonAnimationCharacter && !theme.disableNeonAnimationButton {
